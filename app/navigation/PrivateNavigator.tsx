@@ -1,10 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { FC } from 'react'
 
+import Auth from '@/components/screens/auth/Auth'
+
+import { useAuth } from '@/hooks/useAuth'
+
 import { TypeRootStackParamList } from './navigation.types'
 import { routes } from './routes'
-import Auth from '@/components/screens/auth/Auth'
-import { useAuth } from '@/hooks/useAuth'
 
 const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 

@@ -10,6 +10,14 @@
   "jsxBracketSameLine": false,
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
+    "^@/assets/(.*)$",
+    "^@/components/(.*)$",
+    "^@/config/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/navigation/(.*)$",
+    "^@/providers/(.*)$",
+    "^@/services/(.*)$",
+    "^@/types/(.*)$",
     "^../(.*)",
     "^./(.*)",
     "(.scss)$"

@@ -2,10 +2,13 @@ import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Pressable, Text, View } from 'react-native'
 
-import AuthFields from './AuthFields'
 import Loader from '@/components/ui/Loader'
 import Button from '@/components/ui/button/Button'
+
 import { IAuthFormData } from '@/types/auth.interface'
+
+import AuthFields from './AuthFields'
+import { useAuthMutations } from './useAuthMutations'
 
 const Auth: FC = () => {
 	const [isReg, setIsReg] = useState(false)
@@ -14,11 +17,12 @@ const Auth: FC = () => {
 		mode: 'onChange'
 	})
 
-	const onSubmit: SubmitHandler<IAuthFormData> = (data) => {
-		console.log(data)
-	}
+	const { loginSync, registerSync, isLoading } = useAuthMutations(reset)
 
-	const isLoading = false
+	const onSubmit: SubmitHandler<IAuthFormData> = (data) => {
+		if (isReg) registerSync(data)
+		else loginSync(data)
+	}
 
 	return (
 		<View className='mx-2 items-center justify-center h-full'>
@@ -40,7 +44,8 @@ const Auth: FC = () => {
 							<Text className='text-base text-black text-center mt-6'>
 								{isReg ? 'Already have an account' : "Don't have an account?"}
 								<Text className='text-[#47AA52]'>
-									{' '}{isReg ? 'Login' : 'Sign up'}
+									{' '}
+									{isReg ? 'Login' : 'Sign up'}
 								</Text>
 							</Text>
 						</Pressable>
