@@ -20,22 +20,23 @@ const Categories: FC = () => {
 		<View className='flex flex-col mt-5 mb-4'>
 			<Heading>Categories</Heading>
 
-			<View className='flex-row justify-center mt-5'>
+			<View className='flex-row justify-center mt-5 -mx-2'>
 				{categories?.map((category, index) => (
-					<Pressable
-						key={`${category.id}_${index}`}
-						onPress={() => navigate('Category', { slug: category.slug })}
-						className='bg-gray-100 rounded-xl p-5 mx-2'
-					>
-						<Image
-							source={getMediaSource(category.image)}
-							className='w-10 h-8 p-3 mb-2'
-							style={{ resizeMode: 'cover' }}
-						/>
-						<Text className='font-normal text-xs text-center'>
-							{category.name}
-						</Text>
-					</Pressable>
+					<View key={`${category.id}_${index}`} className='w-1/4 px-2'>
+						<Pressable
+							onPress={() => navigate('Category', { slug: category.slug })}
+							className='items-center justify-center bg-gray-100 rounded-xl p-5'
+						>
+							<Image
+								source={getMediaSource(category.image)}
+								className='w-10 h-8 p-0.5 mb-2'
+								style={{ resizeMode: 'cover' }}
+							/>
+							<Text className='font-normal text-xs text-center'>
+								{category.name}
+							</Text>
+						</Pressable>
+					</View>
 				))}
 			</View>
 		</View>
