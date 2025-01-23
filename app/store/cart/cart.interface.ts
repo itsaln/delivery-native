@@ -1,11 +1,4 @@
-import { IProduct } from '@/types/product.interface'
-
-export interface ICartItem {
-	id: string
-	product: IProduct
-	quantity: number
-	price: number
-}
+import { ICartItem } from '@/types/cart.interface'
 
 export interface ICartInitialState {
 	items: ICartItem[]

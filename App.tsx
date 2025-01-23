@@ -1,3 +1,4 @@
+import { StripeProvider } from '@stripe/stripe-react-native'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -27,7 +28,9 @@ export default function App() {
 				<PersistGate persistor={persistor} loading={null}>
 					<AuthProvider>
 						<SafeAreaProvider>
-							<Navigation />
+							<StripeProvider publishableKey={process.env.STRIPE_KEY}>
+								<Navigation />
+							</StripeProvider>
 						</SafeAreaProvider>
 					</AuthProvider>
 					<StatusBar style='auto' />

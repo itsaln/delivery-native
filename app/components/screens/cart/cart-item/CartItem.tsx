@@ -3,7 +3,7 @@ import { Image, Pressable, Text, View } from 'react-native'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import { ICartItem } from '@/store/cart/cart.interface'
+import { ICartItem } from '@/types/cart.interface'
 
 import { convertPrice } from '@/utils/convertPrice'
 import { getMediaSource } from '@/utils/getMediaSource'

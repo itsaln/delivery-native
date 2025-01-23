@@ -5,7 +5,7 @@ import { Pressable, Text, View } from 'react-native'
 import { useActions } from '@/hooks/useActions'
 import { useCart } from '@/hooks/useCart'
 
-import { ICartItem } from '@/store/cart/cart.interface'
+import { ICartItem } from '@/types/cart.interface'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const { changeQuantity } = useActions()

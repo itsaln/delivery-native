@@ -10,9 +10,11 @@ import { useCart } from '@/hooks/useCart'
 import { convertPrice } from '@/utils/convertPrice'
 
 import CartItem from './cart-item/CartItem'
+import { useCheckout } from './useCheckout'
 
 const Cart: FC = () => {
 	const { items, total } = useCart()
+	const { onCheckout } = useCheckout()
 
 	return (
 		<>
@@ -33,7 +35,7 @@ const Cart: FC = () => {
 					<Text className='font-bold text-xl'>
 						Total: {convertPrice(total)}
 					</Text>
-					<Button onPress={() => {}}>Place order</Button>
+					<Button onPress={() => onCheckout()}>Place order</Button>
 				</View>
 			) : null}
 		</>
