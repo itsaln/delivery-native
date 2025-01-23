@@ -28,7 +28,7 @@ const Product: FC = () => {
 				/>
 			</View>
 			<ProductInfo product={product} />
-			<AddToCartButton productId={product.id} />
+			<AddToCartButton product={product} />
 		</Layout>
 	)
 }
